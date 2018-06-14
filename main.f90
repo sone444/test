@@ -1,11 +1,5 @@
 program main
-implicit none
-common
-&/field/fx
-&/qwell/fp
-&/temp/tem
-&/gamma/gm
-&/time/dt, t
+common /field/fx/qwell/fp/temp/tem/gamma/gm/time/dt, t
 
 ! open file
 open(unit=5, file='data4')
@@ -17,8 +11,8 @@ read(5, *) fp
 read(5, *) fx
 
 write(8, *) 'Lattice Temperture = ',tem,    ' K     '
-write(8, *) 'Field (perpendicular) = ',fp/1. e5, '  kV/cm'
-write(8, *) 'Field (parallel)   =',fx/1. e5, '  kV/cm'
+write(8, *) 'Field (perpendicular) = ',fp/1.e5, '  kV/cm'
+write(8, *) 'Field (parallel)   =',fx/1.e5, '  kV/cm'
 
 ! paramator
 
@@ -42,12 +36,12 @@ itl = ifix(tmax/dt)
 
 ! Multiple Monte Calro Simulation
 
-do 10 it=0, itl
+do it=0, itl
     write(*,*) 'it = ', it
     t = dt*float(it)
     call emc2d
     call out
-10 continue
+enddo
 
 ! close file
 close(5)
