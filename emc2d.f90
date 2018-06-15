@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 c 
     subroutine emc2d
     common
@@ -43,6 +44,8 @@ c
 
 	
 =======
+=======
+>>>>>>> 37f8e83247ec07bdc8c6e3a8e49db07a3111cafc
 subroutine emcd2
     common /com1/kx,ky,kz,ts,x,y,iv &
     /com2/p(10000,6), ip(10000) &
@@ -82,5 +85,9 @@ end
 
 
 
+<<<<<<< HEAD
         
 >>>>>>> b0d64a7c793d569300057f4ad7c1964dacce875f
+=======
+        
+>>>>>>> 37f8e83247ec07bdc8c6e3a8e49db07a3111cafc
