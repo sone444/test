@@ -1,3 +1,51 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+c 
+    subroutine emc2d
+    common
+	&/com1/kx,ky,kz,ts,x,y,iv
+	&/com2/p(10000,6),ip(10000)
+	&/gamma/gm
+	&/num/inum
+	&/time/dt,t
+	real kx,ky,kz
+c
+    tdt=t+dt
+	do 30 n=1,inum
+		kx = p(n,1)
+		ky = p(n,2)
+		kz = p(n,3)
+		ts = p(n,4)
+		x  = p(n,5)
+		y  = p(n,6)
+		iv = ip(n)
+c
+    	t1=t
+    10	if (ts.gt.tdt) go to 20 
+		tau=ts-t1 
+        call drift(tau)
+		call scat2
+		t1=t1-alog(rnd())/gm
+		go to 10 
+	20	tau=tdt-t1
+		call drift(tau)
+c
+        p(n,1) = kx
+        p(n,2) = ky
+		p(n,3) = kz
+		p(n,4) = ts
+		p(n,5) = x
+		p(n,6) = y 
+		ip(n)  = iv
+ 	30 continue
+       return
+       end
+c
+
+	
+=======
+=======
+>>>>>>> 37f8e83247ec07bdc8c6e3a8e49db07a3111cafc
 subroutine emcd2
     common /com1/kx,ky,kz,ts,x,y,iv &
     /com2/p(10000,6), ip(10000) &
@@ -37,4 +85,9 @@ end
 
 
 
+<<<<<<< HEAD
         
+>>>>>>> b0d64a7c793d569300057f4ad7c1964dacce875f
+=======
+        
+>>>>>>> 37f8e83247ec07bdc8c6e3a8e49db07a3111cafc
